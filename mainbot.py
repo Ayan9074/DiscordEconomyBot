@@ -4,7 +4,7 @@ import json
 import os
 import random 
 
-os.chdir("C:\\Users\\Ayan\\Documents\\YoutubeVideos")
+os.chdir("location to the mainbank.json file")
 
 client = commands.Bot(command_prefix = '.')
 
