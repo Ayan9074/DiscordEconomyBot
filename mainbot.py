@@ -68,4 +68,4 @@ async def get_bank_data():
     return users
 
 
-client.run('NzkyNjQ1OTIxMjc1NjQxODg3.X-gvCg.Dz_v_Iy7w1JvjUjyXCVAyCjGj_E')
+client.run('botnumberhere')
