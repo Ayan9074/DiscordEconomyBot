@@ -4,7 +4,7 @@ import json
 import os
 import random 
 
-os.chdir("location to the mainbank.json file")
+os.chdir("C:\\Users\\Ayan\\Documents\\YoutubeVideos")
 
 client = commands.Bot(command_prefix = '.')
 
@@ -22,8 +22,8 @@ async def bal(ctx):
     bank_amt = users[str(user.id)]["bank"]
 
     em = discord.Embed(title = f"{ctx.author.name}'s balance", color = discord.Color.red())
-    em.add_field(name = "wallet balance", value = wallet_amt)
-    em.add_field(name = "bank balance", value = bank_amt)
+    em.add_field(name = "Wallet balance", value = wallet_amt)
+    em.add_field(name = "Bank balance", value = bank_amt)
     await ctx.send(embed = em)
 
 
@@ -35,9 +35,27 @@ async def beg(ctx):
 
     user = ctx.author
     
-    earnings = random.randrange(101)
+    earnings = random.randrange(25)
 
     await ctx.send(f"Someone gave you {earnings} coins!!")
+
+
+    users[str(user.id)]["wallet"] += earnings
+
+    with open("mainbank.json", "w") as f:
+        json.dump(users, f)
+
+@client.command()
+async def work(ctx):
+    await open_account(ctx.author)
+    
+    users = await get_bank_data()
+
+    user = ctx.author
+    
+    earnings = random.randrange(101)
+
+    await ctx.send(f"You worked at McDonalds and earned {earnings} coins!!")
 
 
     users[str(user.id)]["wallet"] += earnings
@@ -68,4 +86,4 @@ async def get_bank_data():
     return users
 
 
-client.run('botnumberhere')
+client.run('')
